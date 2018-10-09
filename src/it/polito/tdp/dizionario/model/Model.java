@@ -9,6 +9,7 @@ import org.jgrapht.Graphs;
 import org.jgrapht.event.ConnectedComponentTraversalEvent;
 import org.jgrapht.event.EdgeTraversalEvent;
 import org.jgrapht.event.TraversalListener;
+import org.jgrapht.event.TraversalListenerAdapter;
 import org.jgrapht.event.VertexTraversalEvent;
 import org.jgrapht.graph.AbstractBaseGraph;
 import org.jgrapht.graph.DefaultEdge;
@@ -74,38 +75,8 @@ public class Model {
 		BreadthFirstIterator<String, DefaultEdge> bfi = 
 				new BreadthFirstIterator<>(grafoParoleSimili, parolaInserita);
 
-		bfi.addTraversalListener(new TraversalListener<String, DefaultEdge>() {
+		bfi.addTraversalListener(new TraversalListenerAdapter<String, DefaultEdge>());
 			
-			@Override
-			public void vertexTraversed(VertexTraversalEvent<String> arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void vertexFinished(VertexTraversalEvent<String> arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void edgeTraversed(EdgeTraversalEvent<String, DefaultEdge> arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void connectedComponentStarted(ConnectedComponentTraversalEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void connectedComponentFinished(ConnectedComponentTraversalEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-		});
 		while( bfi.hasNext()) {
 			tuttiVicini.add(bfi.next());
 		}
